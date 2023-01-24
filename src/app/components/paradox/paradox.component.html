@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-body bg-secondary m-2">
+    <a *ngFor="let doorNumber of doorNumbers">
+      <i *ngIf="doorNumber == openedDoorNo" class="fa fa-plus" (click)="pickDoor(0)">.</i>
+      <i *ngIf="doorNumber != openedDoorNo" class="fa fa-minus" (click)="pickDoor(doorNumber)">.</i>
+    </a>
+  </div>
+
+  <button [disabled]="!isDoorSelected" class="btn btn-primary m-2" (click)="clickStart()">
+    Start
+  </button>
+</div>
+
+<app-popup *ngIf="isShowPopup" (notifyParent)="getNotification($event)" [isShowPopup]="isShowPopup"></app-popup>
